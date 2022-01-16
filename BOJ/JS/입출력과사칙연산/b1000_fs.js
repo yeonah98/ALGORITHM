@@ -8,7 +8,7 @@ const inputData = fs.readFileSync('/dev/stdin').toString().split(' ').map(item =
 // input = input.split(' ');
 // let arr = []; 
 // for (let i = 0; i < input.length; i++) {
-//     arr.push(+input[i]);
+//     arr.push(+input[i]); 
 // }
 
 function solution(A, B) {
