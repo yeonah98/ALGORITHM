@@ -10,9 +10,8 @@ rl.on('line', function(ln){
     //const result = input[0] + input[1];
     console.log(input[0] + input[1]);
 
-    rl.close();
+    //rl.close();
 })
-
-// .on('close', function(){
-//     process.exit;
-// })
+.on('close', function(){
+    process.exit;
+})
