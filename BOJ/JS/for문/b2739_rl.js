@@ -6,8 +6,8 @@ const rl = readline.createInterface({
 
 const solution = (n) => {
     for(var i=1; i < 10; i++) {
-        result = i * n;
-        console.log(n + " * " + i + " = " + result);
+        //result = i * n;
+        console.log(n + " * " + i + " = " + (i * n));
     }
 
 }
