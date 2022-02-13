@@ -4,8 +4,20 @@ const rl = readline.createInterface({
     output: process.stdout
 })
 
-const solution = (input) => {
-
+const solution = (arr) => {
+    let score = 0
+    let cnt = 0
+    for(i in arr) {
+        if(arr[i] == 'O') {
+            score += 1
+        }
+    }
+    for(i in arr) {
+        if (arr[i] == arr[i+1]) {
+            cnt += 1
+        }
+    }
+    console.log(cnt + " " + score)
 }
 
 let input = []
@@ -15,10 +27,9 @@ rl.on('line', (line) => {
 
 }).on('close', () => {
     let num = input.shift()
-
-    solution(input)
-
-    console.log(num)
+    for(i in input) {
+        solution(input[i])
+    }
 
     process.exit()
 })
