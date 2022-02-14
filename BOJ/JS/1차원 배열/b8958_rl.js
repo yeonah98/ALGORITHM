@@ -6,18 +6,18 @@ const rl = readline.createInterface({
 
 const solution = (arr) => {
     let score = 0
-    let cnt = 0
+    let tmp = []
     for(i in arr) {
         if(arr[i] == 'O') {
-            score += 1
+            score += tmp.length + 1
+            tmp.push(arr[i])
+        }
+        else {
+            tmp = []
         }
     }
-    for(i in arr) {
-        if (arr[i] == arr[i+1]) {
-            cnt += 1
-        }
-    }
-    console.log(cnt + " " + score)
+
+    console.log(score)
 }
 
 let input = []
