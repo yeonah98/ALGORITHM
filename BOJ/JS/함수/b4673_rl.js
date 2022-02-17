@@ -1,15 +1,21 @@
-let arr = new Array(100).fill().map((v, i) => i+1)
+let arr = new Array(10000).fill().map((v, i) => i+1)
 
 const d = (n) => {
-    if (n >  100) {
-        return n
-    }
+
     let num = n
     let arr = n.toString().split('').map(x => +x)
     let sum = arr.reduce((a,b) => a+b)
-    console.log(num+sum)
 
-    return (d(num+sum))
+    return (num+sum)
 }
 
-console.log(arr)
+let num = []
+for(let i=1; i<10000; i++) {
+    num.push(d(i))
+}
+
+let answer = []
+answer = arr.filter(x => !num.includes(x))     
+
+console.log(answer.join('\n'))
+
