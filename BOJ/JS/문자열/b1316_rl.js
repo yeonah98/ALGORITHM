@@ -5,10 +5,15 @@ const rl = readline.createInterface({
 })
 
 const solution = (n) => {
-    
-    console.log(n)
+    let tmp = []
+    for(i in n) {
+        if(tmp.indexOf(n[i]) !== -1 && n[i-1] !== n[i]) {
+            return 0
+        }
+        tmp.push(n[i])
+    } 
+    return 1
 }
-
 
 input = []
 rl.on('line', (line) => {
@@ -16,7 +21,11 @@ rl.on('line', (line) => {
 
 }).on('close', () => {
     input.shift()
-    solution(input)
+    let cnt = 0
+    for(i in input) {
+        cnt += solution(input[i])
+    }
+    console.log(cnt)
 
     process.exit()
 })
