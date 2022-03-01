@@ -4,28 +4,29 @@ const rl = readline.createInterface({
     output: process.stdout
 })
 
-const solution = (n) => {
-    let tmp = []
-    for(i in n) {
-        if(tmp.indexOf(n[i]) !== -1 && n[i-1] !== n[i]) {
-            return 0
-        }
-        tmp.push(n[i])
-    } 
-    return 1
-}
+const solution = (A, B, C) => {
+    let cnt = 1
+    let sale = C * cnt
+    let total = A + (B * cnt)
 
-input = []
-rl.on('line', (line) => {
-    input.push(line)
+    while(sale < total) {
+        sale = C * cnt
+        total = A + (B * cnt)
 
-}).on('close', () => {
-    input.shift()
-    let cnt = 0
-    for(i in input) {
-        cnt += solution(input[i])
+        cnt++
     }
     console.log(cnt)
+}
+
+rl.on('line', (line) => {
+    input = line.split(' ').map(x => +x)
+
+}).on('close', () => {
+    let A = input.shift()
+    let B = input.shift()
+    let C = input.shift()
+
+    solution(A, B, C)
 
     process.exit()
 })
