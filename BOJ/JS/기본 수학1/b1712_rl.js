@@ -5,17 +5,15 @@ const rl = readline.createInterface({
 })
 
 const solution = (A, B, C) => {
-    let cnt = 1
-    let sale = C * cnt
-    let total = A + (B * cnt)
+    let cnt = 0
+    // let sale = C * cnt
+    // let total = A + (B * cnt)
 
-    while(sale < total) {
-        sale = C * cnt
-        total = A + (B * cnt)
-
-        cnt++
+    if(B < C) {
+        cnt = Math.floor((A/(C-B))) + 1
+        console.log(cnt)
     }
-    console.log(cnt)
+    else console.log(-1)
 }
 
 rl.on('line', (line) => {
