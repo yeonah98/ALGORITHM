@@ -4,27 +4,37 @@ const rl = readline.createInterface({
     output: process.stdout
 })
 
-const solution = (A, B, C) => {
-    let cnt = 0
-    // let sale = C * cnt
-    // let total = A + (B * cnt)
-
-    if(B < C) {
-        cnt = Math.floor((A/(C-B))) + 1
-        console.log(cnt)
+const sum = (tmp) => {
+    let sum = 0
+    for(let i=1; i<=tmp; i++) {
+        sum += i
     }
-    else console.log(-1)
+    return sum
+}
+
+const solution = (n) => {
+    let tmp = 1
+    let start = 2
+    let end = 7
+    if (n == 1) 
+        return 1
+    if (2 <= n && n <= end) 
+        return 2
+    while (true) {
+        start = 6*sum(tmp)+1
+        end = 6*sum(tmp+1)+1
+        if(start <= n && n <= end)
+            return tmp+2
+        tmp++
+    }
 }
 
 rl.on('line', (line) => {
-    input = line.split(' ').map(x => +x)
+    input = +line
 
 }).on('close', () => {
-    let A = input.shift()
-    let B = input.shift()
-    let C = input.shift()
+    let answer = solution(input)
 
-    solution(A, B, C)
-
+    console.log(answer)
     process.exit()
 })
