@@ -5,16 +5,17 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-const solution = (N) => {  
-  
+const solution = (A, B) => {
+    
+    console.log((A+B).toString());
 }
 
 
 rl.on('line', (line) => {
-    input = +line
+    input = line.split(' ').map(x => BigInt(x));
 
 }).on('close', () => {
-    console.log(solution(input));
+    solution(input[0], input[1]);
 
     process.exit();
 });
