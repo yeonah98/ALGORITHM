@@ -20,26 +20,23 @@ const check = (n) => {
 
 const solution = (A, B) => {
     let arr = [];
-
-    while(A<=B) {
-        if(check(A)) {
-            arr.push(A);
-        }
-        A++;
-    }
     
-    if(arr[0] == null) {
-        console.log(-1);
+    for(let i = A; i<=B; i++) {
+        if(check(i)) {
+            arr.push(i);
+        };
+    };
+
+    let answer = '';
+    for(i in arr) {
+        answer += arr[i] + '\n';
     }
-    else {
-        let sum = arr.reduce((a, b) => a+b);
-        console.log(sum + '\n' + arr[0]);
-    }
+    console.log(answer);
 };
 
-input = [];
+
 rl.on('line', (line) => {
-    input.push(+line);   
+    input = line.split(' ').map(x => +x); 
 }).on('close', () => {
     let A = input[0];
     let B = input[1];
