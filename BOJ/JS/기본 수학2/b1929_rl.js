@@ -27,11 +27,11 @@ const solution = (A, B) => {
         };
     };
 
-    let answer = '';
-    for(i in arr) {
-        answer += arr[i] + '\n';
-    }
-    console.log(answer);
+    // let answer = '';
+    // for(i in arr) {
+    //     answer += arr[i] + '\n';
+    // }
+    console.log(arr.join('\n'));
 };
 
 
