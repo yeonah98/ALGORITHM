@@ -6,58 +6,45 @@ const rl = readline.createInterface({
 
 const check = (n) => {
     if (n < 2) {
-        return true;
+        return false;
     }
 
     for(let i=2; i<=Math.sqrt(n); i++) {
         if(n % i == 0) {
-            return true;
+            return false;
         }
     }
-    return false;
+    return true;
 };
 
 const solution = (n) => {
-    let A = 2;
-    let B = 2;
+    let a = Math.floor(n / 2);
+    let b = Math.ceil(n / 2);
 
-    let arr =[];
-    let cnt = 0;
-    while(true) {
-        for(let i = A; i<=n; i++) {
-            while(check(i)) {
-                i++;
-            }
-            for(let j = B; j<=n; j++) {
-                while(check(j)) {
-                    j++;
-                }
-                if(i+j == n) {
-                    arr.push([i,j]);
-                    cnt++;
-                }
-            }  
-        }
-        break;
-    }
-
-    let answer = arr[Math.floor(cnt/2)];
-    if(answer[0] > answer[1]) {
-        console.log(answer[1] + ' ' + answer[0]);
+    if(check(a) && check(b)) {
+        console.log(a + ' ' + b);
     }
     else {
-        console.log(answer[0] + ' ' + answer[1]);
+        while(true) {
+            a -= 1;
+            b += 1;
+            if(check(a) && check(b)) {
+                console.log(a + ' ' + b);
+                break;
+            }
+        }
     }
 };
 
-input = []
+input = [];
 rl.on('line', (line) => {
     input.push(+line);
 }).on('close', () => {
     input.shift();
+
     for(i in input) {
         solution(input[i]);
-    }
+    };
    
     process.exit();
-})
+});
