@@ -5,39 +5,24 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-const check = (n) => {
-    if (n < 2) {
-        return false;
-    }
-
-    for(let i=2; i<=Math.sqrt(n); i++) {
-        if(n % i == 0) {
-            return false;
-        }
-    }
-    return true;
-};
-
-const solution = (A, B) => {
+const solution = (x, y, w, h) => {
     let arr = [];
-    
-    for(let i = A; i<=B; i++) {
-        if(check(i)) {
-            arr.push(i);
-        };
-    };
 
-    console.log(arr.join('\n'));
+    arr.push(w-x);
+    arr.push(x);
+    arr.push(h-y);
+    arr.push(y);
+
+    let answer = Math.min(...arr);
+    console.log(answer);
 };
 
 
 rl.on('line', (line) => {
     input = line.split(' ').map(x => +x); 
 }).on('close', () => {
-    let A = input[0];
-    let B = input[1];
-
-    solution(A, B)
+   
+    solution(input[0], input[1], input[2], input[3]);
 
     process.exit();
 })
