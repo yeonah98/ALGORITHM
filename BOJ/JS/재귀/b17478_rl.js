@@ -29,6 +29,7 @@ const solution = (depth, n) => {
         console.log(underbar + '그의 답은 대부분 옳았다고 하네. 그런데 어느 날, 그 선인에게 한 선비가 찾아와서 물었어."')
         solution(++depth, n);
         console.log(underbar + '라고 답변하였지.');
+        return ;
     } 
 }
 
